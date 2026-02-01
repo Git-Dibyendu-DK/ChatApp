@@ -1,4 +1,5 @@
 using Chat.API;
+using Chat.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,12 +14,21 @@ builder.Services.AddAppDI(builder.Configuration);
 
 var app = builder.Build();
 
+using(var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var config = services.GetRequiredService<IConfiguration>();
+    await IdentitySeed.SeedAsync(services, config);
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 

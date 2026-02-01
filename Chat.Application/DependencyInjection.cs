@@ -11,6 +11,10 @@ namespace Chat.Application
     {
         public static IServiceCollection AddApplicationDI(this IServiceCollection service)
         {
+            service.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(typeof(ApplicationAssemblyReference).Assembly);
+            });
             return service;
         }
     }

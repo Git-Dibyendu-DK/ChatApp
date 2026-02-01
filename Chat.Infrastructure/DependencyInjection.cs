@@ -1,5 +1,6 @@
 ﻿using Chat.Application.Common.Interface;
 using Chat.Core.Entities;
+using Chat.Core.Repository;
 using Chat.Infrastructure.Auth;
 using Chat.Infrastructure.Data;
 using Microsoft.AspNetCore.Identity;
@@ -23,6 +24,7 @@ namespace Chat.Infrastructure
 
             service.AddScoped<ITokenService, TokenService>();
             service.AddScoped<IAuthService, AuthService>();
+            service.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 
             return service;
         }

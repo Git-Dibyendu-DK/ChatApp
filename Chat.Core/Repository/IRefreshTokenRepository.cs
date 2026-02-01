@@ -10,5 +10,7 @@ namespace Chat.Core.Repository
     public interface IRefreshTokenRepository
     {
         Task AddAsync(RefreshToken refreshToken, CancellationToken cancellationToken);
+        Task<RefreshToken?> GetByTokenAsync(string refreshToken);
+        Task RevokeAsync(RefreshToken refreshToken);
     }
 }

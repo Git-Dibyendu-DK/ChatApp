@@ -6,8 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chat.Application.Command.Auth.Login
+namespace Chat.Application.Command.Auth.Refresh
 {
-    public record LoginCommand(string email, string password):IRequest<AuthResponse>;
-
+    public record RefreshTokenCommand (string refreshToken): IRequest<AuthResponse>;
 }

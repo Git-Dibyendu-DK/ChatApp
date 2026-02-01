@@ -1,4 +1,5 @@
 ﻿using Chat.Application.Common.Interface;
+using Chat.Application.DTOs;
 using Chat.Core.Entities;
 using Chat.Core.Repository;
 using MediatR;

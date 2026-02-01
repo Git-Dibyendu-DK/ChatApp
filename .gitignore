@@ -17,8 +17,7 @@ obj/
 Thumbs.db
 
 ## ASP.NET
-appsettings.json
-appsettings.*.json
+
 
 ## EF Core
 Migrations/*.Designer.cs
